@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.mybtn{
+    padding: .3em .8em;
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.354);
+    transition: all .3s linear;
+}
+.mybtn:hover{
+    padding: .2em .7em;
+    font-size: 28px;
+    font-weight: bold;
+    color: black !important;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.92);
+    transition: all .3s linear;
+}
+.mycontainer{
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 30px;
+    color: white;
+}
+.table{
+    border: 2px solid white;
+    width: 100%;
+}
+.table tr th{
+    font-size: 18px;
+}
