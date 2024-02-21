@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Contact;
-use App\Mail\ConfermaFirst;
+
+use App\Mail\confermaFirst;
+
 use Illuminate\Http\Request;
-use App\Mail\ConfermaFirstAdmin;
+use App\Mail\confermaFirstAdmin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 
@@ -32,10 +34,10 @@ class ContactController extends Controller
                 $contact->message = $data['message'];
                 $contact->update();
 
-                $mail = new ConfermaFirst($contact);
+                $mail = new confermaFirst($contact);
                 Mail::to($data['email'])->send($mail);
 
-                $mailAdmin = new ConfermaFirstAdmin($contact);
+                $mailAdmin = new confermaFirstAdmin($contact);
                 Mail::to('info@didatticaallaperto.it')->send($mailAdmin);
                 return response()->json([
                     'success' => true,
@@ -56,10 +58,10 @@ class ContactController extends Controller
                 $newContact->method        = $data['method'];
                 $newContact->save();
                 
-                $mail = new ConfermaFirst($newContact);
+                $mail = new confermaFirst($newContact);
                 Mail::to($data['email'])->send($mail);
 
-                $mailAdmin = new ConfermaFirstAdmin($newContact);
+                $mailAdmin = new confermaFirstAdmin($newContact);
                 Mail::to('info@didatticaallaperto.it')->send($mailAdmin);
                 return response()->json([
                     'success' => true,
