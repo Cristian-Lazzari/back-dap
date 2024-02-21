@@ -29,6 +29,7 @@ class ContactController extends Controller
             if($esisteGia){
                 $contact = Contact::where('email', $data['email'])->firstOrFail();
                 $contact->counter ++;
+                $contact->message = $data['message'];
                 $contact->update();
 
                 $mail = new ConfermaFirst($contact);
@@ -46,7 +47,7 @@ class ContactController extends Controller
                 $newContact->phone         = $data['phone'];
                 $newContact->email         = $data['email'];
                 $newContact->counter       = 1;
-                if(isset($data['message'])){
+                if(($data['message'])){
                     $newContact->message   = $data['message'];
                 }else{
                     $newContact->message   = 'none';
