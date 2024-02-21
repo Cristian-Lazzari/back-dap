@@ -23,6 +23,18 @@
             width: 120px;
             margin: 0 auto;
         }
+        .btn-mail{
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 2px solid black;
+            background-color: rgba(6, 76, 6, 0.278)
+        }
+        .btn-call{
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 2px solid black;
+            background-color: rgba(23, 6, 76, 0.278)
+        }
     </style>
 </head>
 <body>
@@ -31,7 +43,6 @@
     <h1>IL Sigr/ra {{ $newContact['name'] }} ha richiesto informazioni per un progetto su misura</h1>
     <p>Data ricezione email: {{ $newContact['creted_at'] }}</p>
     
-    <span style="font-size: 35px; font-weight:bolder">{{$newContact['n_person']}}</span>
     @if ($newContact['message'])
         
     <hr>
@@ -39,8 +50,17 @@
     <p class="mes"> {{$newContact['message']}}</p>
     @endif    
     <hr>
+    <p><strong>Metodo di contatto scelto:</strong>
+        @if ($newContact['method'] == 't')
+            telefono
+        @else
+            email
+        @endif
+        </p>
+    <p>Contatta {{$newContact['name']}}
     
-    <p>Contatta {{$newContact['name']}}</p>
-    <a href="tel:{{$newContact['phone']}}" class="btn btn-danger">Chiama {{$newContact['name']}}</a>
+        <a class="btn-call" href="tel:{{$newContact['phone']}}" class="btn btn-danger">Chiama {{$newContact['name']}}</a>
+        <a class="btn-mail" href="mailto:{{$newContact['email']}}" class="btn btn-danger">Scrivi una mail a {{$newContact['name']}}</a>
+    </p>
 </body>
 </html>

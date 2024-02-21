@@ -10,4 +10,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('contacts/mailFirst', [ContactController::class, 'mailFirst'])->name('api.contacts.mailFirst');
+Route::post('contacts/mailFirst', [ContactController::class, 'mailFirst'])->name('api.contacts.mailFirst');

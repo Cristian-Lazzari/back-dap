@@ -33,3 +33,12 @@
 .table tr th{
     font-size: 18px;
 }
+.table tr td{
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+}
+.table tr th{
+    border: 1px solid white;
+    width: 100px;
+}

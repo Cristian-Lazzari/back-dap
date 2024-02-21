@@ -1,12 +1,15 @@
-<?php 
+<?php
 
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class confermaOrdine extends Mailable
+class ConfermaFirst extends Mailable
 {
     use Queueable, SerializesModels;
     public $newContact;
@@ -29,7 +32,7 @@ class confermaOrdine extends Mailable
     public function build()
     {
         return $this->subject('Oggetto dell\'email')
-            ->view('emails.confermaFirst');
+            ->view('emails.confermaFirstCliente');
     }
 
     /**

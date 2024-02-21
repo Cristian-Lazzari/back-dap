@@ -38,9 +38,7 @@
     <p><strong>Metodo di contatto scelto:</strong>
     @if ($newContact['method'] == 't')
         telefono
-    
     @else
-            
         email
     @endif
     </p>
